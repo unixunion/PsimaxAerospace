@@ -102,8 +102,7 @@ namespace CommandMessenger
                 // Force updating the transport buffer
                 //_communicationManager.UpdateTransportBuffer();
                 // Yield to other threads in order to process data in the buffer
-//                Thread.Yield();
-				Thread.Sleep (0);
+                Thread.Yield();
                 // Check if an acknowledgment command has come in
                 acknowledgeCommand = CheckForAcknowledge(ackCmdId, sendQueueState);
             }

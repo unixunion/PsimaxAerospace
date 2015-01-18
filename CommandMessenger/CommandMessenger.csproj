@@ -3,43 +3,36 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3CF8F8FC-6F5C-46F8-94DC-C2E4C505ECA4}</ProjectGuid>
+    <ProjectGuid>{3AB19603-DC48-454C-A49D-E6FEEE97EB16}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CommandMessenger</RootNamespace>
     <AssemblyName>CommandMessenger</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="InTheHand.Net.Personal">
-      <HintPath>..\Bluetooth\InTheHand.Net.Personal.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionManager.cs">
@@ -47,8 +40,6 @@
     </Compile>
     <Compile Include="EventWaiter.cs" />
     <Compile Include="BinaryConverter.cs" />
-    <Compile Include="Bluetooth\BluetoothConnectionManager.cs" />
-    <Compile Include="Bluetooth\BluetoothUtils.cs" />
     <Compile Include="CmdMessenger.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="CommunicationManager.cs" />
@@ -78,7 +69,6 @@
     <Compile Include="SendCommand.cs" />
     <Compile Include="Sender.cs" />
     <Compile Include="StructSerializer.cs" />
-    <Compile Include="Bluetooth\BluetoothTransport.cs" />
     <Compile Include="TransportLayer\ITransport.cs" />
     <Compile Include="Serialport\SerialSettings.cs" />
     <Compile Include="StringUtils.cs" />
@@ -95,4 +85,12 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="CommandMessenger\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".DS_Store" />
+    <None Include="CommandMessenger.csproj" />
+    <None Include="CommandMessenger.csproj.user" />
+  </ItemGroup>
 </Project>

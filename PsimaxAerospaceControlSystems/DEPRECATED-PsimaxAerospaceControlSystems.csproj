@@ -32,12 +32,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml" />

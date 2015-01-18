@@ -33,10 +33,10 @@ with the KSP game state.</Description>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
