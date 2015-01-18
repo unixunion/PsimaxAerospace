@@ -46,4 +46,10 @@ with the KSP game state.</Description>
     <Compile Include="PACS.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\OpenNETCF\OpenNETCF.csproj">
+      <Project>{85CE8DDC-4DF9-417F-923F-FF7D966C192D}</Project>
+      <Name>OpenNETCF</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
