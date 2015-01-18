@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E1DA8578-E48B-4152-970B-3FFE42F9DBD3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PsimaxAerospaceControlSystems</RootNamespace>
+    <AssemblyName>PsimaxAerospaceControlSystems</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PsimaxAerospace.cs" />
+    <Compile Include="Framework\MonoBehaviourExtended.cs" />
+    <Compile Include="Framework\SkinsLibrary.cs" />
+    <Compile Include="CommandMessenger\BinaryConverter.cs" />
+    <Compile Include="CommandMessenger\CmdMessenger.cs" />
+    <Compile Include="CommandMessenger\Command.cs" />
+    <Compile Include="CommandMessenger\CommunicationManager.cs" />
+    <Compile Include="CommandMessenger\ConnectionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommandMessenger\ConsoleUtils.cs" />
+    <Compile Include="CommandMessenger\DisposableObject.cs" />
+    <Compile Include="CommandMessenger\DisposeStack.cs" />
+    <Compile Include="CommandMessenger\Escaped.cs" />
+    <Compile Include="CommandMessenger\EventWaiter.cs" />
+    <Compile Include="CommandMessenger\NewLineEvent.cs" />
+    <Compile Include="CommandMessenger\ReceivedCommand.cs" />
+    <Compile Include="CommandMessenger\SendCommand.cs" />
+    <Compile Include="CommandMessenger\Sender.cs" />
+    <Compile Include="CommandMessenger\StringUtils.cs" />
+    <Compile Include="CommandMessenger\StructSerializer.cs" />
+    <Compile Include="CommandMessenger\TimedAction.cs" />
+    <Compile Include="CommandMessenger\TimeUtils.cs" />
+    <Compile Include="CommandMessenger\ConnectionManager\IConnectionManager.cs" />
+    <Compile Include="CommandMessenger\Properties\AssemblyInfo.cs" />
+    <Compile Include="CommandMessenger\Queue\CollapseCommandStrategy.cs" />
+    <Compile Include="CommandMessenger\Queue\CommandQueue.cs" />
+    <Compile Include="CommandMessenger\Queue\CommandStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommandMessenger\Queue\GeneralStrategy.cs" />
+    <Compile Include="CommandMessenger\Queue\ListQueue.cs" />
+    <Compile Include="CommandMessenger\Queue\QueueSpeed.cs" />
+    <Compile Include="CommandMessenger\Queue\ReceiveCommandQueue.cs" />
+    <Compile Include="CommandMessenger\Queue\SendCommandQueue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommandMessenger\Queue\StaleGeneralStrategy.cs" />
+    <Compile Include="CommandMessenger\Queue\TopCommandStrategy.cs" />
+    <Compile Include="CommandMessenger\Serialport\SerialConnectionManager.cs" />
+    <Compile Include="CommandMessenger\Serialport\SerialSettings.cs" />
+    <Compile Include="CommandMessenger\Serialport\SerialTransport.cs" />
+    <Compile Include="CommandMessenger\TransportLayer\ITransport.cs" />
+    <Compile Include="CommandMessenger\TransportLayer\Logger.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Framework\" />
+    <Folder Include="CommandMessenger\" />
+  </ItemGroup>
+</Project>
