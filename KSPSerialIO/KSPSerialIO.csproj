@@ -18,6 +18,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -26,12 +27,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\OpenNETCF\OpenNETCF.csproj">
-      <Project>{85CE8DDC-4DF9-417F-923F-FF7D966C192D}</Project>
-      <Name>OpenNETCF</Name>
+    <ProjectReference Include="..\FTSerial\KSPSerial.csproj">
+      <Project>{2251D837-6D3E-42F9-8483-A177D00D8426}</Project>
+      <Name>KSPSerial</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -45,5 +47,6 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
 </Project>

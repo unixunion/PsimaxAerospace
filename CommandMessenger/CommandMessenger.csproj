@@ -93,9 +93,9 @@
     <None Include="CommandMessenger.csproj.user" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FTSerial\FTSerial.csproj">
+    <ProjectReference Include="..\FTSerial\KSPSerial.csproj">
       <Project>{2251D837-6D3E-42F9-8483-A177D00D8426}</Project>
-      <Name>FTSerial</Name>
+      <Name>KSPSerial</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

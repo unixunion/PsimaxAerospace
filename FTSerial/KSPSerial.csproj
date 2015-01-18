@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2251D837-6D3E-42F9-8483-A177D00D8426}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FTSerial</RootNamespace>
-    <AssemblyName>FTSerial</AssemblyName>
+    <RootNamespace>KSPSerial</RootNamespace>
+    <AssemblyName>KSPSerial</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -34,21 +34,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FTSerial.IO.Ports\Hacks\MonoTODOAttribute.cs" />
-    <Compile Include="FTSerial.IO.Ports\Handshake.cs" />
-    <Compile Include="FTSerial.IO.Ports\ISerialStream.cs" />
-    <Compile Include="FTSerial.IO.Ports\Parity.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialData.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialError.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialErrorEventArgs.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialPinChange.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialPinChangedEventArgs.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialPort.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialPortStream.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialReceivedEventArgs.cs" />
-    <Compile Include="FTSerial.IO.Ports\SerialSignal.cs" />
-    <Compile Include="FTSerial.IO.Ports\StopBits.cs" />
-    <Compile Include="FTSerial.IO.Ports\WinSerialStream.cs" />
+    <Compile Include="KSPSerial.IO.Ports\Hacks\MonoTODOAttribute.cs" />
+    <Compile Include="KSPSerial.IO.Ports\Handshake.cs" />
+    <Compile Include="KSPSerial.IO.Ports\ISerialStream.cs" />
+    <Compile Include="KSPSerial.IO.Ports\Parity.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialData.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialError.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialErrorEventArgs.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialPinChange.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialPinChangedEventArgs.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialPort.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialPortStream.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialReceivedEventArgs.cs" />
+    <Compile Include="KSPSerial.IO.Ports\SerialSignal.cs" />
+    <Compile Include="KSPSerial.IO.Ports\StopBits.cs" />
+    <Compile Include="KSPSerial.IO.Ports\WinSerialStream.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -56,6 +56,6 @@
     <None Include="ChangeLog" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FTSerial.IO.Ports\" />
+    <Folder Include="KSPSerial.IO.Ports\" />
   </ItemGroup>
 </Project>

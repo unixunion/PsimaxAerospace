@@ -3,7 +3,7 @@ using KSPPluginFramework;
 using KSP;
 using UnityEngine;
 using System.Threading;
-using FTSerial.IO.Ports;
+using KSPSerial.IO.Ports;
 
 
 /*
@@ -50,24 +50,26 @@ namespace PACS
 	{
 
 		public static SerialPort port;
-//		private bool _ledState;
+		private bool _sasState;
+
 
 		internal override void Awake()
 		{
-			LogFormatted("Child is awake");
+			LogFormatted("Connecting to Arduino");
 			SerialPort port = new SerialPort ("/dev/tty.usbmodem621", 115200);
 			port.Open ();
 
-//			Command cmd = new Command();
-//			cmd.sas = true;
-
-			port.Write("hello");
 			StartRepeatingWorker(1);
 //			_serialPort = new SerialPort("/dev/tty.usbmodem621", 115200, Parity.None, 8, StopBits.One);
 
 		}
 		internal override void RepeatingWorker()
 		{
+
+			_sasState = (FlightGlobals.ActiveVessel.ActionGroups [KSPActionGroup.SAS]);
+
+			port.Write("hello");
+
 			LogFormatted ("CHILD status");
 			byte[] outputData = new byte[1];
 			outputData [0] = Convert.ToByte ('0');

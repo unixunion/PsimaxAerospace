@@ -6,8 +6,8 @@ using System.Reflection;
 using System.Threading;
 //using Microsoft.Win32;
 using System.Runtime.InteropServices;
-
-using OpenNETCF.IO.Serial;
+//using OpenNETCF.IO.Ports;
+using KSPSerial.IO.Ports;
 using UnityEngine;
 using KSP.IO;
 
@@ -201,14 +201,15 @@ namespace KSPSerialIO
 
 			SASTol = cfg.GetValue<double>("SASTol");
 			print("KSPSerialIO: SAS Tol = " + SASTol.ToString());
+
+//			cfg.save ();
 		}
 	}
 
 	[KSPAddon(KSPAddon.Startup.Flight, false)]
 	public class KSPSerialPort : MonoBehaviour
 	{
-		public static DetailedPortSettings portSettings;
-		public static Port port;
+		public static SerialPort Port;
 		public static string PortNumber;
 		public static Boolean DisplayFound = false;
 		public static Boolean ControlReceived = false;
@@ -254,30 +255,14 @@ namespace KSPSerialIO
 			Packet[2] = size;
 			Packet[Packet.Length - 1] = checksum;
 
-//			Port.Write(Packet, 0, Packet.Length);
-
-			byte[] outputData = new byte[1];
-
-			for (int i = 0; i < Packet.Length; i++) {
-				outputData [0] = Convert.ToByte (Packet [i]);
-				port.Output = outputData;
-			}
-
+			Port.Write(Packet, 0, Packet.Length);
 		}
 
 		private void Begin()
 		{
-			portSettings = new HandshakeNone ();
-
-			portSettings.BasicSettings.BaudRate = BaudRates.CBR_115200;
-
-			port = new Port(PortNumber, portSettings);
-			port.RThreshold = 3;
-			port.SThreshold = 3;
-			port.InputLen = 1;
-
-//			port.ReceivedBytesThreshold = 3;
-//			port.ReceivedEvent += Port_ReceivedEvent;
+			Port = new SerialPort(PortNumber, SettingsNStuff.BaudRate, Parity.None, 8, StopBits.One);
+			Port.ReceivedBytesThreshold = 3;
+//			Port.ReceivedEvent += Port_ReceivedEvent;
 		}
 
 		//these are copied from the intarwebs, converts struct to byte array
@@ -352,12 +337,11 @@ namespace KSPSerialIO
 				try
 				{
 					//Use registry hack to get a list of serial ports until we get system.io.ports
-					//RegistryKey SerialCOMSKey = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DEVICEMAP\SERIALCOMM\");
+//					RegistryKey SerialCOMSKey = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DEVICEMAP\SERIALCOMM\");
 
 					Begin();
 
 					//print("KSPSerialIO: receive threshold " + Port.ReceivedBytesThreshold.ToString());
-
 
 //					if (SerialCOMSKey == null)
 //					{
@@ -365,63 +349,62 @@ namespace KSPSerialIO
 //					}
 //					else
 //					{
-//						String[] realports = SerialCOMSKey.GetValueNames();  // get list of all serial devices
-//						String[] names = new string[realports.Length + 1];   // make a new list with 1 extra, we put the default port first
-//						realports.CopyTo(names, 1);
-//
-//						Debug.Log("KSPSerialIO: Found " + names.Length.ToString() + " serial ports");
-//
-//						//look through all found ports for our display
-//						int j = 0;
-//
-//						foreach (string PortName in names)
-//						{
-//							if (j == 0)  // try default port first
-//							{
-//								PortNumber = SettingsNStuff.DefaultPort;
-//								Debug.Log("KSPSerialIO: trying default port " + PortNumber);
-//							}
-//							else
-//							{
-//								PortNumber = (string)SerialCOMSKey.GetValue(PortName);
-//								Debug.Log("KSPSerialIO: trying port " + PortName + " - " + PortNumber);
-//							}
+					String[] realports = SerialPort.GetPortNames(); // SerialCOMSKey.GetValueNames();  // get list of all serial devices
+					String[] names = new string[realports.Length + 1];   // make a new list with 1 extra, we put the default port first
+					realports.CopyTo(names, 1);
 
-							port.PortName = "/dev/tty.usbmodem621";
+					Debug.Log("KSPSerialIO: Found " + names.Length.ToString() + " serial ports");
 
-//							j++;
+					//look through all found ports for our display
+					int j = 0;
 
-							if (!port.IsOpen)
+					foreach (string PortName in names)
+					{
+						if (j == 0)  // try default port first
+						{
+							PortNumber = SettingsNStuff.DefaultPort;
+							Debug.Log("KSPSerialIO: trying default port " + PortNumber);
+						}
+						else
+						{
+//							PortNumber = (string)SerialCOMSKey.GetValue(PortName);
+							Debug.Log("KSPSerialIO: trying port " + PortName);
+						}
+
+							Port.PortName = PortName;
+
+							j++;
+
+							if (!Port.IsOpen)
 							{
 								try
 								{
-									port.Open();
+									Port.Open();
 								}
 								catch (Exception e)
 								{
-									Debug.Log("Error opening serial port " + port.PortName + ": " + e.Message);
+									Debug.Log("Error opening serial port " + Port.PortName + ": " + e.Message);
 								}
 
 								//secret handshake
-								if (port.IsOpen)
+								if (Port.IsOpen)
 								{
 									Thread.Sleep(SettingsNStuff.HandshakeDelay);
 									sendPacket(HPacket);
 
 									//wait for reply
 									int k = 0;
-
-									while (port.InBufferCount == 0 && k < 15 && !DisplayFound)
+									while (Port.BytesToRead == 0 && k < 15 && !DisplayFound)
 									{
 										Thread.Sleep(100);
 										k++;
 									}
 
-									port.Close();
+									Port.Close();
 									if (DisplayFound)
 									{
-										Debug.Log("KSPSerialIO: found KSP Display at " + port.PortName);
-//										break;
+										Debug.Log("KSPSerialIO: found KSP Display at " + Port.PortName);
+										break;
 									}
 									else
 									{
@@ -433,8 +416,8 @@ namespace KSPSerialIO
 							{
 								Debug.Log("KSPSerialIO: " + PortNumber + "is already being used.");
 							}
-						
-					
+						}
+//					}
 
 				}
 				catch (Exception e)
@@ -450,15 +433,11 @@ namespace KSPSerialIO
 			char c;
 			int j = 0;
 
-//			c = (char)port.ReadByte();
-
-//			byte[] c = new byte[1];
-			c = Convert.ToChar(port.Input);
-
+			c = (char)Port.ReadByte();
 			while (c != '\n' && j < 255)
 			{
 				result += c;
-				c = Convert.ToChar(port.Input);
+				c = (char)Port.ReadByte();
 				j++;
 			}
 			return result;
@@ -466,7 +445,7 @@ namespace KSPSerialIO
 
 		private void Port_ReceivedEvent(object sender, SerialReceivedEventArgs e)
 		{
-			while (port.InBufferCount > 0)
+			while (Port.BytesToRead > 0)
 			{
 				if (processCOM())
 				{
@@ -504,16 +483,16 @@ namespace KSPSerialIO
 
 			if (rx_len == 0)
 			{
-				while (Convert.ToInt16(port.Input) != 0xBE)
+				while (Port.ReadByte() != 0xBE)
 				{
-					if (port.InBufferCount == 0)
+					if (Port.BytesToRead == 0)
 						return false;
 				}
 
-				if (Convert.ToInt16(port.Input) == 0xEF)
+				if (Port.ReadByte() == 0xEF)
 				{
-					rx_len = Convert.ToByte(port.Input);
-					id = Convert.ToByte(port.Input);
+					rx_len = (byte)Port.ReadByte();
+					id = (byte)Port.ReadByte();
 					rx_array_inx = 1;
 
 					switch (id)
@@ -540,9 +519,9 @@ namespace KSPSerialIO
 			}
 			else
 			{
-				while (port.InBufferCount > 0 && rx_array_inx <= rx_len)
+				while (Port.BytesToRead > 0 && rx_array_inx <= rx_len)
 				{
-					buffer[rx_array_inx++] = Convert.ToByte(port.Input);
+					buffer[rx_array_inx++] = (byte)Port.ReadByte();
 				}
 				buffer[0] = id;
 
@@ -626,7 +605,7 @@ namespace KSPSerialIO
 
 		private static void debug()
 		{
-			Debug.Log(port.InputLen.ToString() + "BTR");
+			Debug.Log(Port.BytesToRead.ToString() + "BTR");
 		}
 
 
@@ -640,10 +619,10 @@ namespace KSPSerialIO
 
 		void OnDestroy()
 		{
-			if (KSPSerialPort.port.IsOpen)
+			if (KSPSerialPort.Port.IsOpen)
 			{
-				KSPSerialPort.port.Close();
-//				port.ReceivedEvent -= Port_ReceivedEvent;
+				KSPSerialPort.Port.Close();
+//				Port.ReceivedEvent -= Port_ReceivedEvent;
 				Debug.Log("KSPSerialIO: Port closed");
 			}
 		}
@@ -676,24 +655,24 @@ namespace KSPSerialIO
 		{
 			if (KSPSerialPort.DisplayFound)
 			{
-				if (!KSPSerialPort.port.IsOpen)
+				if (!KSPSerialPort.Port.IsOpen)
 				{
-					ScreenMessages.PostScreenMessage("Starting serial port " + KSPSerialPort.port.PortName, 10f, KSPIOScreenStyle);
+					ScreenMessages.PostScreenMessage("Starting serial port " + KSPSerialPort.Port.PortName, 10f, KSPIOScreenStyle);
 
 					try
 					{
-						KSPSerialPort.port.Open();
+						KSPSerialPort.Port.Open();
 						Thread.Sleep(SettingsNStuff.HandshakeDelay);
 					}
 					catch (Exception e)
 					{
-						ScreenMessages.PostScreenMessage("Error opening serial port " + KSPSerialPort.port.PortName, 10f, KSPIOScreenStyle);
+						ScreenMessages.PostScreenMessage("Error opening serial port " + KSPSerialPort.Port.PortName, 10f, KSPIOScreenStyle);
 						ScreenMessages.PostScreenMessage(e.Message, 10f, KSPIOScreenStyle);
 					}
 				}
 				else
 				{
-					ScreenMessages.PostScreenMessage("Using serial port " + KSPSerialPort.port.PortName, 10f, KSPIOScreenStyle);
+					ScreenMessages.PostScreenMessage("Using serial port " + KSPSerialPort.Port.PortName, 10f, KSPIOScreenStyle);
 				}
 
 				Thread.Sleep(200);
@@ -729,7 +708,7 @@ namespace KSPSerialIO
 
 		void Update()
 		{
-			if (FlightGlobals.ActiveVessel != null && KSPSerialPort.port.IsOpen)
+			if (FlightGlobals.ActiveVessel != null && KSPSerialPort.Port.IsOpen)
 			{
 				//Debug.Log("KSPSerialIO: 1");
 				//If the current active vessel is not what we were using, we need to remove controls from the old 
@@ -1289,9 +1268,9 @@ namespace KSPSerialIO
 
 		void OnDestroy()
 		{
-			if (KSPSerialPort.port.IsOpen)
+			if (KSPSerialPort.Port.IsOpen)
 			{
-				KSPSerialPort.port.Close();
+				KSPSerialPort.Port.Close();
 				ScreenMessages.PostScreenMessage("Port closed", 10f, KSPIOScreenStyle);
 			}
 
