@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B2861DD-54DA-4AD2-B4F8-A689594E85F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FTSerialREF</RootNamespace>
+    <AssemblyName>FTSerial-REF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Handshake.cs" />
+    <Compile Include="ISerialStream.cs" />
+    <Compile Include="Parity.cs" />
+    <Compile Include="SerialData.cs" />
+    <Compile Include="SerialError.cs" />
+    <Compile Include="SerialErrorEventArgs.cs" />
+    <Compile Include="SerialPinChange.cs" />
+    <Compile Include="SerialPinChangedEventArgs.cs" />
+    <Compile Include="SerialPort.cs" />
+    <Compile Include="SerialPortStream.cs" />
+    <Compile Include="SerialReceivedEventArgs.cs" />
+    <Compile Include="SerialSignal.cs" />
+    <Compile Include="StopBits.cs" />
+    <Compile Include="WinSerialStream.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

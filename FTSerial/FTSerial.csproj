@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2251D837-6D3E-42F9-8483-A177D00D8426}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FTSerial</RootNamespace>
+    <AssemblyName>FTSerial</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FTSerial.IO.Ports\Hacks\MonoTODOAttribute.cs" />
+    <Compile Include="FTSerial.IO.Ports\Handshake.cs" />
+    <Compile Include="FTSerial.IO.Ports\ISerialStream.cs" />
+    <Compile Include="FTSerial.IO.Ports\Parity.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialData.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialError.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialErrorEventArgs.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialPinChange.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialPinChangedEventArgs.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialPort.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialPortStream.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialReceivedEventArgs.cs" />
+    <Compile Include="FTSerial.IO.Ports\SerialSignal.cs" />
+    <Compile Include="FTSerial.IO.Ports\StopBits.cs" />
+    <Compile Include="FTSerial.IO.Ports\WinSerialStream.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include="ChangeLog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FTSerial.IO.Ports\" />
+  </ItemGroup>
+</Project>
