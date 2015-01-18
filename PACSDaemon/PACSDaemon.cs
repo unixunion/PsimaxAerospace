@@ -1,5 +1,6 @@
 ﻿using System;
-using FTSerial.IO.Ports;
+using KSPSerial.IO.Ports;
+using System.Threading;
 
 namespace PACSDaemon
 {
@@ -24,10 +25,14 @@ namespace PACSDaemon
 			SerialPort port = new SerialPort ("/dev/tty.usbmodem621", 115200);
 			port.Open ();
 
+			Thread.Sleep (2000);
+
 			Command cmd = new Command();
 			cmd.sas = true;
 
-			port.Write(cmd.ToString());
+			port.Write("R");
+
+			Console.Write ("Sent");
 
 		}
 	}

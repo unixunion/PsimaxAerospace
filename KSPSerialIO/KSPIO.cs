@@ -166,13 +166,13 @@ namespace KSPSerialIO
 			print("KSPSerialIO: Loading settings...");
 
 			cfg.load();
-			DefaultPort = cfg.GetValue<string>("DefaultPort");
+			DefaultPort = cfg.GetValue<string>("DefaultPort", "/dev/tty.usbmodem621");
 			print("KSPSerialIO: Default Port = " + DefaultPort);
 
 			refreshrate = cfg.GetValue<double>("refresh");
 			print("KSPSerialIO: Refreshrate = " + refreshrate.ToString());
 
-			BaudRate = cfg.GetValue<int>("BaudRate");
+			BaudRate = cfg.GetValue<int>("BaudRate", 115200);
 			print("KSPSerialIO: BaudRate = " + BaudRate.ToString());
 
 			HandshakeDelay = cfg.GetValue<int>("HandshakeDelay");
@@ -201,8 +201,8 @@ namespace KSPSerialIO
 
 			SASTol = cfg.GetValue<double>("SASTol");
 			print("KSPSerialIO: SAS Tol = " + SASTol.ToString());
+			cfg.save ();
 
-//			cfg.save ();
 		}
 	}
 
@@ -260,8 +260,10 @@ namespace KSPSerialIO
 
 		private void Begin()
 		{
-			Port = new SerialPort(PortNumber, SettingsNStuff.BaudRate, Parity.None, 8, StopBits.One);
+			Debug.Log ("Starting Port");
+			Port = new SerialPort(PortNumber, SettingsNStuff.BaudRate);
 			Port.ReceivedBytesThreshold = 3;
+			Debug.Log ("Port started: " + PortNumber);
 //			Port.ReceivedEvent += Port_ReceivedEvent;
 		}
 
@@ -372,6 +374,7 @@ namespace KSPSerialIO
 						}
 
 							Port.PortName = PortName;
+							
 
 							j++;
 
@@ -380,6 +383,7 @@ namespace KSPSerialIO
 								try
 								{
 									Port.Open();
+									Debug.Log("Port is open");
 								}
 								catch (Exception e)
 								{
@@ -389,6 +393,7 @@ namespace KSPSerialIO
 								//secret handshake
 								if (Port.IsOpen)
 								{
+									Debug.Log("Handshaking");
 									Thread.Sleep(SettingsNStuff.HandshakeDelay);
 									sendPacket(HPacket);
 
@@ -423,6 +428,7 @@ namespace KSPSerialIO
 				catch (Exception e)
 				{
 					print(e.Message);
+					Debug.Log (e.Message);
 				}
 			}
 		}

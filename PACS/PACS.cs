@@ -49,14 +49,16 @@ namespace PACS
 	public class PACSChild : MonoBehaviourExtended
 	{
 
-		public static SerialPort port;
+		private SerialPort port;
 		private bool _sasState;
-
+		private bool _rcsState;
+		private bool _gearState;
+		private bool _lightState;
 
 		internal override void Awake()
 		{
 			LogFormatted("Connecting to Arduino");
-			SerialPort port = new SerialPort ("/dev/tty.usbmodem621", 115200);
+			port = new SerialPort ("/dev/tty.usbmodem621", 115200);
 			port.Open ();
 
 			StartRepeatingWorker(1);
@@ -67,14 +69,16 @@ namespace PACS
 		{
 
 			_sasState = (FlightGlobals.ActiveVessel.ActionGroups [KSPActionGroup.SAS]);
+			_rcsState = (FlightGlobals.ActiveVessel.ActionGroups [KSPActionGroup.RCS]);
+			_gearState = (FlightGlobals.ActiveVessel.ActionGroups [KSPActionGroup.Gear]);
+			_lightState = (FlightGlobals.ActiveVessel.ActionGroups [KSPActionGroup.Light]);
 
-			port.Write("hello");
 
 			LogFormatted ("CHILD status");
-			byte[] outputData = new byte[1];
-			outputData [0] = Convert.ToByte ('0');
-//			port.Output = outputData;
-			port.Write ("1");
+
+			// send the states one at a time
+			port.Write (_sasState ? "S" : "s");
+			port.Write (_rcsState ? "R" : "r");
 
 			Thread.Sleep(1000);
 		}

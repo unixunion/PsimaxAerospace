@@ -1,0 +1,12 @@
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/KSPSerialIO.dll.mdb
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/KSPSerialIO.dll
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/obj/Debug/KSPSerialIO.dll
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/obj/Debug/KSPSerialIO.dll.mdb
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/UnityEngine.dll
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/Assembly-CSharp.dll
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/KSPSerial.dll
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/KSPSerial.dll.mdb
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/System.Xml.dll
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/TDx.TDxInput.dll
+/Users/marzubus/Projects/PsimaxAerospace/KSPSerialIO/bin/Debug/Mono.Cecil.dll

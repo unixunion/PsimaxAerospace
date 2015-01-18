@@ -49,6 +49,7 @@
     <Compile Include="KSPSerial.IO.Ports\SerialSignal.cs" />
     <Compile Include="KSPSerial.IO.Ports\StopBits.cs" />
     <Compile Include="KSPSerial.IO.Ports\WinSerialStream.cs" />
+    <Compile Include="Helper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

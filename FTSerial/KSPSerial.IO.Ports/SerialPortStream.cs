@@ -33,8 +33,9 @@ namespace KSPSerial.IO.Ports
 			fd = open_serial (portName);
 			if (fd == -1)
 				ThrowIOException ();
-				
-			TryBaudRate (baudRate);
+
+			// disabling - Kegan
+//			TryBaudRate (baudRate);
 			
 			if (!set_attributes (fd, baudRate, parity, dataBits, stopBits, handshake))
 				ThrowIOException (); // Probably Win32Exc for compatibility

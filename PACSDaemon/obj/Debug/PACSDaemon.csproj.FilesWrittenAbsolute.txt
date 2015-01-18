@@ -5,3 +5,5 @@
 /Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/bin/Debug/PACSDaemon.exe
 /Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/obj/Debug/PACSDaemon.exe
 /Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/obj/Debug/PACSDaemon.exe.mdb
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/bin/Debug/KSPSerial.dll
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/bin/Debug/KSPSerial.dll.mdb
