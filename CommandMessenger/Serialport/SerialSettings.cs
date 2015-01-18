@@ -19,7 +19,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO.Ports;
+using FTSerial.IO.Ports;
 using System.ComponentModel;
 
 namespace CommandMessenger

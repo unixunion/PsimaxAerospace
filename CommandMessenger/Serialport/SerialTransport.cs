@@ -18,7 +18,7 @@
 #endregion
 
 using System;
-using System.IO.Ports;
+using FTSerial.IO.Ports;
 using System.Reflection;
 using System.Linq;
 using System.Threading;

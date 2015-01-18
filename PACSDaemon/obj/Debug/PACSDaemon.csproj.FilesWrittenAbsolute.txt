@@ -1,0 +1,7 @@
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/bin/Debug/FTSerial.dll
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/bin/Debug/FTSerial.dll.mdb
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/bin/Debug/PACSDaemon.exe.mdb
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/bin/Debug/PACSDaemon.exe
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/obj/Debug/PACSDaemon.exe
+/Users/marzubus/Projects/PsimaxAerospace/PACSDaemon/obj/Debug/PACSDaemon.exe.mdb

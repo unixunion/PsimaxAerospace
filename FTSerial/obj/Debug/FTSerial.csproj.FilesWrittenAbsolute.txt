@@ -1,0 +1,4 @@
+/Users/marzubus/Projects/PsimaxAerospace/FTSerial/bin/Debug/FTSerial.dll.mdb
+/Users/marzubus/Projects/PsimaxAerospace/FTSerial/bin/Debug/FTSerial.dll
+/Users/marzubus/Projects/PsimaxAerospace/FTSerial/obj/Debug/FTSerial.dll
+/Users/marzubus/Projects/PsimaxAerospace/FTSerial/obj/Debug/FTSerial.dll.mdb

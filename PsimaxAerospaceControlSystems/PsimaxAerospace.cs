@@ -51,28 +51,28 @@ namespace PsimaxAerospace
 			LogFormatted("PACS is awake");
 			MBExtendedChild Child = gameObject.AddComponent<MBExtendedChild>();
 
-//			LogFormatted ("Setting up serial port");
+			LogFormatted ("Setting up serial port");
 			// Create Serial Port object
-//			SerialTransport _serialTransport = new SerialTransport();
-//			_serialTransport.CurrentSerialSettings.PortName = "/dev/tty.usbmodem621";    // Set com port
-//			_serialTransport.CurrentSerialSettings.BaudRate = 115200;     // Set baud rate
-//			_serialTransport.CurrentSerialSettings.DtrEnable = false;     // For some boards (e.g. Sparkfun Pro Micro) DtrEnable may need to be true.
-//
-//			// Initialize the command messenger with the Serial Port transport layer
-//			LogFormatted ("Setting up messenger");
-//			CmdMessenger _cmdMessenger = new CmdMessenger(_serialTransport);
-//
-//			// Tell CmdMessenger if it is communicating with a 16 or 32 bit Arduino board
-//			_cmdMessenger.BoardType = BoardType.Bit16;
-//
-//			// Attach the callbacks to the Command Messenger
-////			AttachCommandCallBacks();
-//			_ledState = false;
-//
-//			// Start listening
-//			LogFormatted ("Connecting to Arduino");
-//			_cmdMessenger.Connect();  
-//			//Start the repeating worker to fire once each second
+			SerialTransport _serialTransport = new SerialTransport();
+			_serialTransport.CurrentSerialSettings.PortName = "/dev/tty.usbmodem621";    // Set com port
+			_serialTransport.CurrentSerialSettings.BaudRate = 115200;     // Set baud rate
+			_serialTransport.CurrentSerialSettings.DtrEnable = false;     // For some boards (e.g. Sparkfun Pro Micro) DtrEnable may need to be true.
+
+			// Initialize the command messenger with the Serial Port transport layer
+			LogFormatted ("Setting up messenger");
+			CmdMessenger _cmdMessenger = new CmdMessenger(_serialTransport);
+
+			// Tell CmdMessenger if it is communicating with a 16 or 32 bit Arduino board
+			_cmdMessenger.BoardType = BoardType.Bit16;
+
+			// Attach the callbacks to the Command Messenger
+//			AttachCommandCallBacks();
+			_ledState = false;
+
+			// Start listening
+			LogFormatted ("Connecting to Arduino");
+			_cmdMessenger.Connect();  
+			//Start the repeating worker to fire once each second
 			StartRepeatingWorker(1);
 		}
 
@@ -80,22 +80,22 @@ namespace PsimaxAerospace
 		internal override void RepeatingWorker()
 		{
 			LogFormatted ("Reading SAS status");
-//			_sasState = (FlightGlobals.ActiveVessel.ActionGroups [KSPActionGroup.SAS]);
+			_sasState = (FlightGlobals.ActiveVessel.ActionGroups [KSPActionGroup.SAS]);
 
 			// Create command
 			LogFormatted ("Creating a command");
-//			var command = new SendCommand((int)Command.SetLed,_ledState);               
+			var command = new SendCommand((int)Command.SetLed,_ledState);               
 
 			// Send command
 			LogFormatted ("Sending Command");
-//			_cmdMessenger.SendCommand(command);
+			_cmdMessenger.SendCommand(command);
 
 			LogFormatted("sending SAS status to Arduino ");
 			LogFormatted(_sasState?"on":"off");
 
 			// Wait for 1 second and repeat
 			Thread.Sleep(1000);
-//			_ledState = !_ledState;   // Toggle led state          
+			_ledState = !_ledState;   // Toggle led state          
 		}
 
 

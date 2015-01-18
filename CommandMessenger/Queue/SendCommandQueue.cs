@@ -184,7 +184,7 @@ namespace CommandMessenger
         {
             while (Queue.Count > MaxQueueLength)
             {
-                Thread.Yield();
+                Thread.Sleep(0);
             }
             lock (Queue)
             {

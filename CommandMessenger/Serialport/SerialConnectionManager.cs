@@ -21,7 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.IO.Ports;
+using FTSerial.IO.Ports;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;

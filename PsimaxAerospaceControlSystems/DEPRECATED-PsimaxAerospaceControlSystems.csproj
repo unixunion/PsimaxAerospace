@@ -35,6 +35,12 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\Library\Application Support\Steam\SteamApps\common\Kerbal Space Program\KSP.app\Contents\Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PsimaxAerospace.cs" />
@@ -86,5 +92,11 @@
   <ItemGroup>
     <Folder Include="Framework\" />
     <Folder Include="CommandMessenger\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommandMessenger\CommandMessenger.csproj">
+      <Project>{3AB19603-DC48-454C-A49D-E6FEEE97EB16}</Project>
+      <Name>CommandMessenger</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -37,4 +37,10 @@
     <Compile Include="ArduinoInterface.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\FTSerial\FTSerial.csproj">
+      <Project>{2251D837-6D3E-42F9-8483-A177D00D8426}</Project>
+      <Name>FTSerial</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

@@ -1,0 +1,13 @@
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/PsimaxAerospaceControlSystems.dll.mdb
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/PsimaxAerospaceControlSystems.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/obj/Debug/PsimaxAerospaceControlSystems.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/obj/Debug/PsimaxAerospaceControlSystems.dll.mdb
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/UnityEngine.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/Assembly-CSharp.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/CommandMessenger.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/CommandMessenger.dll.mdb
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/TDx.TDxInput.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/Mono.Cecil.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/FTSerial.dll
+/Users/marzubus/Projects/PsimaxAerospace/PsimaxAerospaceControlSystems/bin/Debug/FTSerial.dll.mdb

@@ -1,11 +1,8 @@
 ﻿<Properties StartupItem="Receive/1-Receive.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="KSPSerialIO/KSPIO.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CommandMessenger/CmdMessenger.cs">
     <Files>
-      <File FileName="KSPSerialIO/KSPIO.cs" Line="57" Column="57" />
-      <File FileName="OpenNETCF/Port.cs" Line="52" Column="52" />
-      <File FileName="KSPSerialIO/SerialReceivedEventArgs.cs" Line="1" Column="1" />
-      <File FileName="PACS/PACS.cs" Line="3" Column="3" />
+      <File FileName="CommandMessenger/CmdMessenger.cs" Line="3" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

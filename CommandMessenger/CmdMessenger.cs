@@ -19,11 +19,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+//using System.Diagnostics;
 using System.Threading;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using CommandMessenger.TransportLayer;
-using ThreadState = System.Diagnostics.ThreadState;
+//using ThreadState = System.Diagnostics.ThreadState;
 
 namespace CommandMessenger
 {
@@ -231,25 +231,25 @@ namespace CommandMessenger
         //    InvokeNewLineEvent(NewLineReceived, e);
         //}
 
-        public void SetSingleCore()
-        {
-            var proc = Process.GetCurrentProcess();
-            foreach (ProcessThread pt in proc.Threads)
-            {
-                if (pt.ThreadState != ThreadState.Terminated)
-                {
-                    try
-                    {
-                        pt.IdealProcessor = 0;
-                        pt.ProcessorAffinity = (IntPtr) 1;
-                    }
-                    catch (Exception)
-                    {
-                    }
-
-                }
-            }
-        }
+//        public void SetSingleCore()
+//        {
+//            var proc = Process.GetCurrentProcess();
+//            foreach (ProcessThread pt in proc.Threads)
+//            {
+//                if (pt.ThreadState != ThreadState.Terminated)
+//                {
+//                    try
+//                    {
+//                        pt.IdealProcessor = 0;
+//                        pt.ProcessorAffinity = (IntPtr) 1;
+//                    }
+//                    catch (Exception)
+//                    {
+//                    }
+//
+//                }
+//            }
+//        }
         /// <summary> Sets a control to invoke on. </summary>
         /// <param name="controlToInvokeOn"> The control to invoke on. </param>
         public void SetControlToInvokeOn(Control controlToInvokeOn)

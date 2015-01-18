@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenNETCF", "OpenNETCF\Open
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSPSerialIO", "KSPSerialIO\KSPSerialIO.csproj", "{15515FF7-8EC8-4A5B-A96C-A55E149820F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTSerial", "FTSerial\FTSerial.csproj", "{2251D837-6D3E-42F9-8483-A177D00D8426}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,18 @@ Global
 		{15515FF7-8EC8-4A5B-A96C-A55E149820F5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{15515FF7-8EC8-4A5B-A96C-A55E149820F5}.Release|x86.ActiveCfg = Release|Any CPU
 		{15515FF7-8EC8-4A5B-A96C-A55E149820F5}.Release|x86.Build.0 = Release|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Debug|x86.Build.0 = Debug|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Release|x86.ActiveCfg = Release|Any CPU
+		{2251D837-6D3E-42F9-8483-A177D00D8426}.Release|x86.Build.0 = Release|Any CPU
 		{3AB19603-DC48-454C-A49D-E6FEEE97EB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3AB19603-DC48-454C-A49D-E6FEEE97EB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AB19603-DC48-454C-A49D-E6FEEE97EB16}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

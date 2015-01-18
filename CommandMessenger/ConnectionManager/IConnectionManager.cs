@@ -15,4 +15,8 @@ namespace CommandMessenger.ConnectionManager2
         event EventHandler ConnectionFound;
         event EventHandler<ConnectionManagerProgressEventArgs> Progress;
     }
+
+//	public class Control() {
+//	}
+
 }

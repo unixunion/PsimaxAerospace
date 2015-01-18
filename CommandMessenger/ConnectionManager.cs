@@ -124,7 +124,7 @@ namespace CommandMessenger
                 {
                     //Asynchronously call on UI thread
                     ControlToInvokeOn.BeginInvoke((MethodInvoker) (() => eventHandler(this, null)));
-                    Thread.Yield();
+                    Thread.Sleep(0);
                 }
                 else
                 {
@@ -153,7 +153,7 @@ namespace CommandMessenger
                 {
                     //Asynchronously call on UI thread
                     ControlToInvokeOn.BeginInvoke((MethodInvoker) (() => eventHandler(this, eventHandlerArguments)));
-                    Thread.Yield();
+                    Thread.Sleep(0);
                 }
                 else
                 {
